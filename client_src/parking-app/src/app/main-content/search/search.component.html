@@ -1,0 +1,15 @@
+<form class="main-search">
+  <mat-form-field class="min-width">
+    <input type="text" class="form-control search-input" placeholder="plate number" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option" mat-dropdown-position="bottom">
+        <!--<img style="vertical-align:middle;" aria-hidden src="/assets/{{option.name}}.jpg" height="50" />-->
+        <span (click)="hostClicked(option)">
+            {{ option.plateNumber }}
+          </span>
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="color:grey;"></span>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button mat-raised-button>Search</button>
+</form>

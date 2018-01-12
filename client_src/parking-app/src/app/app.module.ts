@@ -15,6 +15,10 @@ import {
   MatStepperModule, MatTableModule,
 } from '@angular/material';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {UserCardComponent} from './main-content/user-card/user-card.component';
+import {SearchComponent} from './main-content/search/search.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ApiRequestsService} from "./api-requests.service";
 
 @NgModule({
   declarations: [
@@ -22,6 +26,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MainHeaderComponent,
     MainFooterComponent,
     MainContentComponent,
+    UserCardComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,8 +87,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatToolbarModule,
     MatTooltipModule,
     MatStepperModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    ApiRequestsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
