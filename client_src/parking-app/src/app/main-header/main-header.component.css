@@ -7,3 +7,18 @@
 .example-select {
   margin: 0 10px;
 }
+
+.main-header {
+  height: 100px;
+}
+
+.menu-btn {
+  float: right;
+  margin: 10px 20px;
+
+  height: 50px;
+  line-height: 50px;
+  white-space: nowrap;
+  width: 50px;
+  color: rgb(117, 117, 117)
+}

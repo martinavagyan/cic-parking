@@ -1,6 +1,6 @@
 <form class="main-search">
-  <mat-form-field class="min-width">
-    <input type="text" class="form-control search-input" placeholder="plate number" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+  <mat-form-field class="search-container">
+    <input type="text" class="form-control search-input" placeholder="" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
       <mat-option *ngFor="let option of filteredOptions | async" [value]="option" mat-dropdown-position="bottom">
         <!--<img style="vertical-align:middle;" aria-hidden src="/assets/{{option.name}}.jpg" height="50" />-->
@@ -11,5 +11,7 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <button mat-raised-button>Search</button>
+  <button mat-icon-button class = "search-btn">
+    <i class="material-icons">search</i>
+  </button>
 </form>

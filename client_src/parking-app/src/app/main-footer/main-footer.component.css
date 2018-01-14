@@ -2,7 +2,16 @@
   position:fixed;
   left:0px;
   bottom:0px;
-  height:30px;
+  height:50px;
   width:100%;
-  background: #F5F5F5;
+  text-align: center;
+  color: #BDBDBD;
+  font-size: 12px !important;
+}
+
+.footer-btn {
+
+}
+.footer-btn:hover {
+  color: #9E9E9E;
 }
