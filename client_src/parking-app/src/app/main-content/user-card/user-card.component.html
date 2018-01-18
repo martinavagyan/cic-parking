@@ -16,20 +16,36 @@
         </mat-menu>
       </mat-card-header>
       <mat-card-content>
-        <div class ="plate-holder">
-          <span class = "title">MK-VB-13</span>
+        <div class="plate-holder">
+          <span class="title">MK-VB-13</span>
         </div>
         <mat-card-subtitle>Andrew Garfield</mat-card-subtitle>
-        <p class = "info">
-          Please contact me by
+        <p class="info">
+          <span>Please contact me by</span>
         </p>
       </mat-card-content>
     </div>
     <mat-card-actions class="card-footer">
       <button mat-raised-button color="primary"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i> Whatsapp</button>
-      <!--<br/><br/>-->
-      <!--<button mat-raised-button color="secondary"><i class="fa fa-slack fa-2x" aria-hidden="true"></i> Slack</button>-->
-      <!--<button mat-raised-button color="secondary"><i class="fa fa-phone fa-2x" aria-hidden="true"></i> Call</button>-->
+      <button mat-raised-button color="secondary" [matMenuTriggerFor]="othercontacts"><i class="material-icons">expand_more</i>Other</button>
+      <mat-menu #othercontacts="matMenu">
+        <button mat-menu-item>
+          <i class="fa fa-slack" aria-hidden="true"></i>
+          <span>Slack</span>
+        </button>
+        <button mat-menu-item>
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          <span>Phone</span>
+        </button>
+        <button mat-menu-item>
+          <i class="fa fa-telegram" aria-hidden="true"></i>
+          <span>Telegram</span>
+        </button>
+        <button mat-menu-item>
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <span>Email</span>
+        </button>
+      </mat-menu>
     </mat-card-actions>
   </mat-card>
 </div>

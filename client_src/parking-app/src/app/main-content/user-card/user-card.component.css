@@ -40,7 +40,8 @@ mat-card-subtitle {
   z-index: 100;
   position: relative;
   margin-bottom: 20px;
-  color: #9E9E9E;
+  color: #757575;
+  font-weight: 300;
 }
 
 mat-card-actions {
@@ -76,5 +77,7 @@ mat-card-content {
 }
 
 .info {
-  margin-top: 20px;
+  font-weight: 400;
+  margin-top: 25px;
+  color: #757575;
 }
