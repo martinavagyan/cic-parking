@@ -5,6 +5,8 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 import {CarOwner} from '../../car-owner';
 import {ApiRequestsService} from '../../api-requests.service';
+import {trigger, transition, style, animate, state} from '@angular/animations'
+
 
 @Component({
   selector: 'app-search',
@@ -13,15 +15,15 @@ import {ApiRequestsService} from '../../api-requests.service';
 })
 export class SearchComponent implements OnInit {
 
-  myControl = new FormControl();
+  public myControl: FormControl = new FormControl();
+  public carOwners: Array<CarOwner> = [];
+  public filteredOptions: Observable<CarOwner[]>;
 
-  carOwners: Array<CarOwner> = [];
 
   constructor(public apiRequestsService: ApiRequestsService) {
     apiRequestsService.getCarOwners().subscribe(response => this.carOwners = response);
   }
 
-  filteredOptions: Observable<CarOwner[]>;
 
   @Output()
   onHostClicked = new EventEmitter<void>();
@@ -33,17 +35,22 @@ export class SearchComponent implements OnInit {
       .map(name => name ? this.filter(name) : this.carOwners.slice());
   }
 
-  hostClicked(host) {
+  public plateNumberClicked(host): void {
     console.log(host);
-    this.onHostClicked.emit(host);
+    //this.onHostClicked.emit(host);
+    console.log(this.filteredOptions);
   }
 
-  filter(plateNumber: string): CarOwner[] {
+  public testfunc(array): void {
+    console.log(array);
+  }
+
+  public filter(plateNumber: string): CarOwner[] {
     return this.carOwners.filter(host =>
       host.plateNumber.toLowerCase().indexOf(plateNumber.toLowerCase()) === 0);
   }
 
-  displayFn(user: CarOwner): any {
+  public displayFn(user: CarOwner): any {
     return user ? user.plateNumber : user;
   }
 

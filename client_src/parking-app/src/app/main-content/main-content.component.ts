@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainContentComponent implements OnInit {
 
+  public showUser: boolean = true;
   constructor() { }
 
   ngOnInit() {

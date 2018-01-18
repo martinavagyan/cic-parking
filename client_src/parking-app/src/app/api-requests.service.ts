@@ -28,7 +28,7 @@ export class ApiRequestsService {
     },
     {
       name: "Vass",
-      plateNumber: "Mk-VB-13",
+      plateNumber: "MK-VB-13",
       contact: [
         {
           name: "whatsapp",
