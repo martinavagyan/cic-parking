@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
+
 import {AppComponent} from './app.component';
 import {MainHeaderComponent} from './main-header/main-header.component';
 import {MainFooterComponent} from './main-footer/main-footer.component';
@@ -20,6 +21,8 @@ import {SearchComponent} from './main-content/search/search.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ApiRequestsService} from "./api-requests.service";
 import { AddPlateNumberComponent } from './main-content/add-plate-number/add-plate-number.component';
+import { MapValuesPipe } from './map-values.pipe';
+import { DialogContentComponent } from './dialog-content/dialog-content.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { AddPlateNumberComponent } from './main-content/add-plate-number/add-pla
     UserCardComponent,
     SearchComponent,
     AddPlateNumberComponent,
+    MapValuesPipe,
+    DialogContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,9 +98,13 @@ import { AddPlateNumberComponent } from './main-content/add-plate-number/add-pla
     FormsModule,
   ],
   providers: [
-    ApiRequestsService
+    ApiRequestsService,
+    MapValuesPipe,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogContentComponent
+  ]
 })
 export class AppModule {
 }

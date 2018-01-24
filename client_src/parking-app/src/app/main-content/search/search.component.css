@@ -25,6 +25,9 @@
   margin-left: -40px;
   color: rgb(117, 117, 117);
 }
+.search-btn:hover {
+  color: #3f51b5;
+}
 
 .info {
   color: #BDBDBD;

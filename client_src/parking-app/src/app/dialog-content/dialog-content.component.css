@@ -1,0 +1,36 @@
+#footer {
+  display: block;
+  position: relative;
+  left: 0px;
+  bottom: 0px;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  color: #BDBDBD;
+}
+
+#main-dialog {
+  position: relative;
+  font-weight: 300;
+  text-align: center;
+}
+
+.header {
+  background-image: url('../../assets/about_back.jpg');
+  transform: scale(2,2);
+  background-size: cover;
+  max-width: 400px;
+  height: 75px;
+  z-index: 1;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.title {
+  z-index: 2;
+  position: relative;
+  color: white;
+  bottom: -50%;
+}
+
+

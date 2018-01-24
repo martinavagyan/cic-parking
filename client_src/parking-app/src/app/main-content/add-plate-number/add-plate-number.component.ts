@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Renderer} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
+import { ChangeDetectorRef } from '@angular/core';
 
 
 @Component({
@@ -9,7 +10,18 @@ import {MatSnackBar} from '@angular/material';
 })
 export class AddPlateNumberComponent implements OnInit {
 
-  constructor(public snackBar: MatSnackBar) {}
+  public infoTextPlateNumber: string = "You can add your or your colleague's plate number.";
+  public infoTextEmail: string = "You will receive a token that will allow you to edit the entry.";
+
+  public contactList: Map<string, any> = new Map<string, any>();
+  public contactOptions: Map<string, any> = new Map<string, any>();
+  /**
+   * The following variable is a workaround for making angular update pipe arrays
+   * while avoiding usage of impure pipes to increase the performance */
+  private updateMaps: boolean = false;
+
+
+  constructor(public snackBar: MatSnackBar,private ref: ChangeDetectorRef, private renderer: Renderer) {}
 
   openSnackBar(message: string = "Plate number added.", action: string = "Success!") {
     this.snackBar.open(message, action, {
@@ -18,11 +30,55 @@ export class AddPlateNumberComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.contactOptions.set("Phone", {
+      name: "Phone",
+      icon: "phone",
+    }).set("Whatsapp", {
+      name: "Whatsapp",
+      icon: "whatsapp",
+    }).set("Slack", {
+      name: "Slack",
+      icon: "slack",
+    }).set("Telegram", {
+      name: "Telegram",
+      icon: "telegram",
+    }).set("Other", {
+      name: "Other",
+      icon: "address-book-o",
+    });
   }
 
-  testFunc(): void{
-    console.log("I am clicked");
+  public addContactField(value): void{
+    this.moveContactOptionToContactList(value);
+    this.updateTemplateMapsPipe();
+  }
+
+  private moveContactOptionToContactList(value:any){
+    if(value.val.name !== 'Other') {
+      this.contactOptions.delete(value.key);
+      this.contactList.set(value.key, value.val);
+    } else {
+      let uniqueName = new Date().getTime();
+      this.contactList.set(value.key + uniqueName, value.val);
+    }
+  }
+
+  public deleteFromSelectedContacts(value: any){
+    this.contactList.delete(value.key);
+    if(value.val.name !== 'Other') {
+      this.contactOptions.set(value.key, value.val);
+    }
+    this.updateTemplateMapsPipe();
+    console.log(value);
+  }
+
+  private updateTemplateMapsPipe(){
+    this.updateMaps = !this.updateMaps;
+  }
+
+  public changeInputIconToDelete(event: any, currentIcon: string, changeToDelete: boolean) {
+      this.renderer.setElementClass(event.target,"fa-trash-o",changeToDelete);
+      this.renderer.setElementClass(event.target,currentIcon,!changeToDelete);
   }
 
 }

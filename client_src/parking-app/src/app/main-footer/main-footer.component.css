@@ -15,7 +15,7 @@
 }
 
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 480px) and (min-height: 480px) {
   #footer {
     display: block;
     position:fixed;
@@ -27,4 +27,8 @@
     color: #BDBDBD;
     z-index: -1;
   }
+}
+
+#footer a {
+  color: #BDBDBD !important;
 }

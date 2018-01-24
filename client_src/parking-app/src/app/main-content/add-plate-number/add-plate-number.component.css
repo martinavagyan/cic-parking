@@ -4,6 +4,8 @@
   text-align: center;
   width: 70%;
   margin: 0 auto;
+  overflow: scroll;
+  max-height: 300px;
 }
 
 .example-container > * {
@@ -34,8 +36,6 @@ mat-form-field {
 
 mat-card {
   padding: 5px;
-  max-height: 400px;
-  overflow: scroll;
 }
 
 .save-btn {
@@ -44,4 +44,31 @@ mat-card {
 
 .add-contact-btn {
   font-weight: 400;
+}
+
+.block {
+  display: block;
+}
+
+.input-icon {
+  position: absolute;
+  right: 0;
+  bottom: 20%;
+  color: rgb(117, 117, 117);
+}
+
+.contact-field {
+
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+input {
+  border-color: rgb(117, 117, 117);
+}
+
+.menu-btn {
+  color: #424242;
 }

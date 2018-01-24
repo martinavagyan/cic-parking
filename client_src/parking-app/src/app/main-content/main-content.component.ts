@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainContentComponent implements OnInit {
 
-  public showUser: boolean = true;
+  public showUser: boolean = false;
+  public showSearch: boolean = false;
+  public showAdd: boolean = true;
+
   constructor() { }
 
   ngOnInit() {
