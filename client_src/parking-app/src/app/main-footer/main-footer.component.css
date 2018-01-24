@@ -1,12 +1,5 @@
 #footer {
-  position:fixed;
-  left:0px;
-  bottom:0px;
-  height:50px;
-  width:100%;
-  text-align: center;
-  color: #BDBDBD;
-  font-size: 12px !important;
+  display: none;
 }
 
 .footer-btn {
@@ -14,4 +7,24 @@
 }
 .footer-btn:hover {
   color: #9E9E9E;
+}
+
+.footer-btn span {
+  font-weight: 400 !important;;
+  font-size: 13px !important;
+}
+
+
+@media screen and (min-width: 480px) {
+  #footer {
+    display: block;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:50px;
+    width:100%;
+    text-align: center;
+    color: #BDBDBD;
+    z-index: -1;
+  }
 }

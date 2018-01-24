@@ -19,6 +19,7 @@ import {UserCardComponent} from './main-content/user-card/user-card.component';
 import {SearchComponent} from './main-content/search/search.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ApiRequestsService} from "./api-requests.service";
+import { AddPlateNumberComponent } from './main-content/add-plate-number/add-plate-number.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {ApiRequestsService} from "./api-requests.service";
     MainContentComponent,
     UserCardComponent,
     SearchComponent,
+    AddPlateNumberComponent,
   ],
   imports: [
     BrowserModule,

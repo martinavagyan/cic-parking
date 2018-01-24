@@ -1,0 +1,48 @@
+<mat-card class="example-card">
+  <div class = "form-header">
+    <button mat-icon-button class = "back-btn">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button mat-icon-button class = "save-btn" (click)="openSnackBar()" aria-label="Show an example snack-bar">
+      <mat-icon>check</mat-icon>
+    </button>
+  </div>
+  <div class="fields-container">
+    <mat-form-field>
+      <input matInput placeholder="Plate number" value = "MK-VB-13">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Email">
+    </mat-form-field>
+
+    <button mat-button color="secondary" [matMenuTriggerFor]="othercontacts" class = "add-contact-btn" color="primary"><i class="material-icons">add_circle_outline</i> contact</button>
+    <mat-menu #othercontacts="matMenu">
+      <button mat-menu-item>
+        <i class="fa fa-slack" aria-hidden="true"></i>
+        <span>Slack</span>
+      </button>
+      <button mat-menu-item (click)="testFunc()">
+        <i class="fa fa-phone" aria-hidden="true"></i>
+        <span>Phone</span>
+      </button>
+      <button mat-menu-item>
+        <i class="fa fa-telegram" aria-hidden="true"></i>
+        <span>Telegram</span>
+      </button>
+      <button mat-menu-item>
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <span>Email</span>
+      </button>
+      <button mat-menu-item>
+        <i class="fa fa-address-book-o" aria-hidden="true"></i>
+        <span>Other</span>
+      </button>
+    </mat-menu>
+
+  </div>
+</mat-card>

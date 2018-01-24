@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MatDialog} from "@angular/material";
 
 @Component({
   selector: 'app-main-footer',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainFooterComponent implements OnInit {
 
-  constructor() { }
+  public tempVar: string;
+
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
-
 }

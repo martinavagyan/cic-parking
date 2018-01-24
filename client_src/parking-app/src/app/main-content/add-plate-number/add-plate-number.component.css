@@ -1,0 +1,47 @@
+.fields-container {
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+input {
+  text-align: center;
+}
+
+.example-card {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.form-header {
+  height: 40px;
+  position: relative;
+}
+
+.back-btn {
+  float: left;
+  display: block;
+}
+mat-form-field {
+  display: block;
+}
+
+mat-card {
+  padding: 5px;
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.save-btn {
+  float: right;
+}
+
+.add-contact-btn {
+  font-weight: 400;
+}
