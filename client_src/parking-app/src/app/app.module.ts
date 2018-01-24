@@ -1,5 +1,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {ModuleWithProviders} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {routing} from './app.routes';
 
 
 import {AppComponent} from './app.component';
@@ -96,10 +99,12 @@ import { DialogContentComponent } from './dialog-content/dialog-content.componen
     MatStepperModule,
     ReactiveFormsModule,
     FormsModule,
+    routing,
   ],
   providers: [
     ApiRequestsService,
     MapValuesPipe,
+    RouterModule,
   ],
   bootstrap: [AppComponent],
   entryComponents: [

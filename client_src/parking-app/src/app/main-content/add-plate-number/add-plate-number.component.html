@@ -29,7 +29,7 @@
       </mat-form-field>
     </ng-container>
 
-    <button [disabled]="contactOptions.size === 0" mat-button color="secondary" [matMenuTriggerFor]="othercontacts"
+    <button [matTooltip] = "contactList.size === 0 ? infoAddContactBtn : ''" [disabled]="contactOptions.size === 0" mat-button color="secondary" [matMenuTriggerFor]="othercontacts"
             class="add-contact-btn" color="primary"><i class="material-icons">add_circle_outline</i> contact
     </button>
     <mat-menu #othercontacts="matMenu">

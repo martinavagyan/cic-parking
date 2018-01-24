@@ -12,6 +12,8 @@ export class AddPlateNumberComponent implements OnInit {
 
   public infoTextPlateNumber: string = "You can add your or your colleague's plate number.";
   public infoTextEmail: string = "You will receive a token that will allow you to edit the entry.";
+  public infoAddContactBtn: string = "Recommended to have more than one contact option.";
+
 
   public contactList: Map<string, any> = new Map<string, any>();
   public contactOptions: Map<string, any> = new Map<string, any>();
