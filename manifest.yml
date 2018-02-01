@@ -1,0 +1,7 @@
+---
+applications:
+- name: copark
+  path: .
+  buildpack: sdk-for-nodejs
+  command: npm start
+  memory: 512M
