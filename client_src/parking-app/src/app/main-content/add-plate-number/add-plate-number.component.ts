@@ -83,4 +83,8 @@ export class AddPlateNumberComponent implements OnInit {
       this.renderer.setElementClass(event.target,currentIcon,!changeToDelete);
   }
 
+  public createUser(): void {
+
+  }
+
 }
