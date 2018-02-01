@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import {CarOwner} from '../../car-owner';
 import {ApiRequestsService} from '../../api-requests.service';
 import {trigger, transition, style, animate, state} from '@angular/animations'
+import {CarOwnerApi} from "../../shared/sdk/services/custom/CarOwner";
 
 
 @Component({
@@ -20,8 +21,9 @@ export class SearchComponent implements OnInit {
   public filteredOptions: Observable<CarOwner[]>;
 
 
-  constructor(public apiRequestsService: ApiRequestsService) {
-    apiRequestsService.getCarOwners().subscribe(response => this.carOwners = response);
+  constructor(public apiRequestsService: ApiRequestsService, public carOwnerApi:CarOwnerApi) {
+    //apiRequestsService.getCarOwners().subscribe(response => this.carOwners = response);
+    carOwnerApi.find({where: "plateNumber"}).subscribe(response => this.carOwners = response);
   }
 
 

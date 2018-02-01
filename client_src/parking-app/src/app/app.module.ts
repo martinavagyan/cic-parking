@@ -26,6 +26,8 @@ import {ApiRequestsService} from "./api-requests.service";
 import { AddPlateNumberComponent } from './main-content/add-plate-number/add-plate-number.component';
 import { MapValuesPipe } from './map-values.pipe';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
+import {CarOwnerApi} from "./shared/sdk/services/custom/CarOwner";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { DialogContentComponent } from './dialog-content/dialog-content.componen
     DialogContentComponent,
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     MatAutocompleteModule,
     MatButtonModule,
@@ -105,6 +108,7 @@ import { DialogContentComponent } from './dialog-content/dialog-content.componen
     ApiRequestsService,
     MapValuesPipe,
     RouterModule,
+    CarOwnerApi,
   ],
   bootstrap: [AppComponent],
   entryComponents: [
