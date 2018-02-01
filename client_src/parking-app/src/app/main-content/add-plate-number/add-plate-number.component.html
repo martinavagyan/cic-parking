@@ -1,0 +1,45 @@
+<mat-card class="example-card">
+  <div class="form-header">
+    <button mat-icon-button class="back-btn" color="primary">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button mat-icon-button class="save-btn" (click)="openSnackBar()" aria-label="snack-bar" color="primary">
+      <mat-icon>check</mat-icon>
+    </button>
+  </div>
+  <div class="fields-container">
+    <mat-form-field>
+      <input [matTooltip]="infoTextPlateNumber" matInput placeholder="Plate number" value="MK-VB-13">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Name">
+      <i class="fa fa-user input-icon" aria-hidden="true"></i>
+    </mat-form-field>
+    <mat-form-field>
+      <input [matTooltip]="infoTextEmail" matInput placeholder="Email">
+      <i class="fa fa-envelope input-icon" aria-hidden="true"></i>
+    </mat-form-field>
+    <ng-container *ngFor="let contact of (contactList | MapValuesPipe:updateMaps)">
+      <mat-form-field>
+        <input matInput placeholder="{{contact.val.name}}">
+        <i (mouseover)="changeInputIconToDelete($event,'fa-' + contact.val.icon, true)"
+           (mouseleave)="changeInputIconToDelete($event,'fa-' + contact.val.icon, false)"
+           (click)="deleteFromSelectedContacts(contact)" class="fa fa-{{contact.val.icon}} input-icon pointer"
+           aria-hidden="true"></i>
+      </mat-form-field>
+    </ng-container>
+
+    <button [matTooltip] = "contactList.size === 0 ? infoAddContactBtn : ''" [disabled]="contactOptions.size === 0" mat-button color="secondary" [matMenuTriggerFor]="othercontacts"
+            class="add-contact-btn" color="primary"><i class="material-icons">add_circle_outline</i> contact
+    </button>
+    <mat-menu #othercontacts="matMenu">
+      <ng-container *ngFor="let contact of (contactOptions | MapValuesPipe:updateMaps)">
+        <button class="menu-btn" mat-menu-item (click)="addContactField(contact)">
+          <i class="fa fa-{{contact.val.icon}}" aria-hidden="true"></i>
+          <span>{{contact.val.name}}</span>
+        </button>
+      </ng-container>
+    </mat-menu>
+
+  </div>
+</mat-card>

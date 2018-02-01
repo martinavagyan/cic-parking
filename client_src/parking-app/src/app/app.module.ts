@@ -1,5 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {ModuleWithProviders} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {routing} from './app.routes';
+
 
 import {AppComponent} from './app.component';
 import {MainHeaderComponent} from './main-header/main-header.component';
@@ -19,6 +23,9 @@ import {UserCardComponent} from './main-content/user-card/user-card.component';
 import {SearchComponent} from './main-content/search/search.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ApiRequestsService} from "./api-requests.service";
+import { AddPlateNumberComponent } from './main-content/add-plate-number/add-plate-number.component';
+import { MapValuesPipe } from './map-values.pipe';
+import { DialogContentComponent } from './dialog-content/dialog-content.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +35,9 @@ import {ApiRequestsService} from "./api-requests.service";
     MainContentComponent,
     UserCardComponent,
     SearchComponent,
+    AddPlateNumberComponent,
+    MapValuesPipe,
+    DialogContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,11 +99,17 @@ import {ApiRequestsService} from "./api-requests.service";
     MatStepperModule,
     ReactiveFormsModule,
     FormsModule,
+    routing,
   ],
   providers: [
-    ApiRequestsService
+    ApiRequestsService,
+    MapValuesPipe,
+    RouterModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogContentComponent
+  ]
 })
 export class AppModule {
 }

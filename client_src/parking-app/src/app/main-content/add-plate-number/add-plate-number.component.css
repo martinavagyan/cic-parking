@@ -1,0 +1,74 @@
+.fields-container {
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  overflow: scroll;
+  max-height: 300px;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+input {
+  text-align: center;
+}
+
+.example-card {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.form-header {
+  height: 40px;
+  position: relative;
+}
+
+.back-btn {
+  float: left;
+  display: block;
+}
+mat-form-field {
+  display: block;
+}
+
+mat-card {
+  padding: 5px;
+}
+
+.save-btn {
+  float: right;
+}
+
+.add-contact-btn {
+  font-weight: 400;
+}
+
+.block {
+  display: block;
+}
+
+.input-icon {
+  position: absolute;
+  right: 0;
+  bottom: 20%;
+  color: rgb(117, 117, 117);
+}
+
+.contact-field {
+
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+input {
+  border-color: rgb(117, 117, 117);
+}
+
+.menu-btn {
+  color: #424242;
+}

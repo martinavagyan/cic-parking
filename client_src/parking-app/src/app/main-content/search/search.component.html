@@ -1,15 +1,21 @@
 <form class="main-search">
-  <mat-form-field class="min-width">
-    <input type="text" class="form-control search-input" placeholder="plate number" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+  <mat-form-field class="search-container">
+    <input type="text" class="form-control search-input" placeholder="" aria-label="Assignee" matInput
+           [formControl]="myControl" [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option" mat-dropdown-position="bottom">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (onSelectionChange)="plateNumberClicked(option)" mat-dropdown-position="bottom">
         <!--<img style="vertical-align:middle;" aria-hidden src="/assets/{{option.name}}.jpg" height="50" />-->
-        <span (click)="hostClicked(option)">
+        <span>
             {{ option.plateNumber }}
-          </span>
-        <span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="color:grey;"></span>
+        </span>
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <button mat-raised-button>Search</button>
+  <button mat-icon-button class="search-btn" color="primary">
+    <i class="material-icons flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length > 0">search</i>
+    <i class="material-icons flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length == 0">add</i>
+  </button>
+  <br/>
+  <span class = "info flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length > 0">Search for a plate number</span>
+  <span class = "info flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length == 0">Add the plate number</span>
 </form>

@@ -1,8 +1,95 @@
 .example-card {
-  width: 400px;
+  width: 80%;
+  margin: 0 auto;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.card-footer {
+  text-align: center;
+}
+
+mat-card {
+  padding: 0 0 40px;
+
+}
+
+mat-card-header button mat-icon {
+}
+
+mat-card-header {
+  width: 100%;
+  text-align: center;
+  display: block;
+  height: 100px;
+  background: #3f51b5; /* fallback for old browsers */
+  background: linear-gradient(to right, #5691c8, #3f51b5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.cad-options {
+  float: right !important;
+  position: relative;
+  display: block;
+}
+
+.title {
+  display: block;
+}
+
+mat-card-subtitle {
+  display: inline-block;
+  margin-top: 12px !important;
+  z-index: 100;
+  position: relative;
+  margin-bottom: 20px;
+  color: #757575;
+  font-weight: 300;
+}
+
+mat-card-actions {
+
+}
+
+mat-card-content {
+  text-align: center;
+  position: relative;
+}
+
+.plate-holder {
+  border-radius: 50%;
+  padding: 50px 0px;
+  width: 122px;
+  font-size: 18px;
+  top: -62px;
+  position: absolute;
+  background: white;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  border: 1px double #EEEEEE;
+}
+
+.total-header {
+
+}
+
+.color-btn {
+  color: #f7f7f7;
+}
+
+.info {
+  font-weight: 400;
+  margin-top: 25px;
+  color: #757575;
+}
+
+mat-menu-item {
+  color: #757575;
+}
+
+mat-card-actions button {
+  margin-top: 10px;
+}
+
+.float-left {
+  float: left;
 }

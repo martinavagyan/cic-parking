@@ -1,5 +1,20 @@
-<div class="raw search-card-container">
-  <mat-card>
-    <app-search (onHostClicked) = "addHost($event)"></app-search>
-  </mat-card>
+<button mat-button (click)="showUser = !showUser; showSearch = false; showAdd = false; " style="position: relative;">User</button>
+<button mat-button (click)="showSearch = !showSearch; showUser = false; showAdd = false;" style="position: relative;">Search</button>
+<button mat-button (click)="showAdd = !showAdd; showSearch = false; showUser = false;" style="position: relative;">Add</button>
+
+<div class="main-body">
+  <div class="raw search-card-container">
+    <div>
+      <div *ngIf="showSearch">
+        <span class="logo gradient-logo">Copark</span>
+        <app-search (onHostClicked)="addHost($event)"></app-search>
+      </div>
+      <div *ngIf="showUser" class="slide-top">
+        <app-user-card></app-user-card>
+      </div>
+      <div *ngIf="showAdd" class="slide-top">
+        <app-add-plate-number></app-add-plate-number>
+      </div>
+    </div>
+  </div>
 </div>
