@@ -35,18 +35,23 @@ export class AddPlateNumberComponent implements OnInit {
     this.contactOptions.set("Phone", {
       name: "Phone",
       icon: "phone",
+      value: 0,
     }).set("Whatsapp", {
       name: "Whatsapp",
       icon: "whatsapp",
+      value: 0,
     }).set("Slack", {
       name: "Slack",
       icon: "slack",
+      value: 0,
     }).set("Telegram", {
       name: "Telegram",
       icon: "telegram",
+      value: 0,
     }).set("Other", {
       name: "Other",
       icon: "address-book-o",
+      value: 0,
     });
   }
 

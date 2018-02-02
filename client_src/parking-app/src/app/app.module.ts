@@ -34,8 +34,6 @@ import {SDKModels} from "./shared/sdk/services/custom/SDKModels";
 import {LoopBackAuth} from "./shared/sdk/services/core/auth.service";
 import {InternalStorage} from "./shared/sdk/storage/storage.swaps";
 import {JSONSearchParams} from "./shared/sdk/services/core/search.params";
-import {CarOwnerApi} from "./shared/sdk/services/custom/CarOwner";
-import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -122,7 +120,7 @@ import {HttpModule} from "@angular/http";
     SDKModels,
     LoopBackAuth,
     InternalStorage,
-    JSONSearchParams
+    JSONSearchParams,
     CarOwnerApi,
   ],
   bootstrap: [AppComponent],

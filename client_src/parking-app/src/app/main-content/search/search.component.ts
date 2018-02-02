@@ -7,6 +7,7 @@ import {CarOwner} from '../../car-owner';
 import {ApiRequestsService} from '../../api-requests.service';
 import {trigger, transition, style, animate, state} from '@angular/animations'
 import {CarOwnerApi} from "../../shared/sdk/services/custom/CarOwner";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -21,9 +22,9 @@ export class SearchComponent implements OnInit {
   public filteredOptions: Observable<CarOwner[]>;
 
 
-  constructor(public apiRequestsService: ApiRequestsService, public carOwnerApi:CarOwnerApi) {
+  constructor(public apiRequestsService: ApiRequestsService, public carOwnerApi:CarOwnerApi, private router: Router) {
     //apiRequestsService.getCarOwners().subscribe(response => this.carOwners = response);
-    carOwnerApi.find({where: "plateNumber"}).subscribe(response => this.carOwners = response);
+    carOwnerApi.find().subscribe(response => this.carOwners = response);
   }
 
 
@@ -46,6 +47,7 @@ export class SearchComponent implements OnInit {
     console.log(host);
     //this.onHostClicked.emit(host);
     console.log(this.filteredOptions);
+    this.router.navigate(['/user',host.plateNumber]);
   }
 
   public testfunc(array): void {

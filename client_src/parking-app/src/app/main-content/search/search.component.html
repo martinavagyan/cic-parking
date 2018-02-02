@@ -1,21 +1,27 @@
-<form class="main-search">
-  <mat-form-field class="search-container">
-    <input type="text" class="form-control search-input" placeholder="" aria-label="Assignee" matInput
-           [formControl]="myControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (onSelectionChange)="plateNumberClicked(option)" mat-dropdown-position="bottom">
-        <!--<img style="vertical-align:middle;" aria-hidden src="/assets/{{option.name}}.jpg" height="50" />-->
-        <span>
-            {{ option.plateNumber }}
-        </span>
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-  <button mat-icon-button class="search-btn" color="primary">
-    <i class="material-icons flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length > 0">search</i>
-    <i class="material-icons flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length == 0">add</i>
-  </button>
-  <br/>
-  <span class = "info flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length > 0">Search for a plate number</span>
-  <span class = "info flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length == 0">Add the plate number</span>
-</form>
+
+<div class="main-body">
+  <div class="raw search-card-container">
+    <span class="logo gradient-logo">Copark</span>
+    <form class="main-search">
+      <mat-form-field class="search-container">
+        <input type="text" class="form-control search-input" placeholder="" aria-label="Assignee" matInput
+               [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (onSelectionChange)="plateNumberClicked(option)" mat-dropdown-position="bottom">
+            <!--<img style="vertical-align:middle;" aria-hidden src="/assets/{{option.name}}.jpg" height="50" />-->
+            <span>
+                {{ option.plateNumber }}
+            </span>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <button mat-icon-button class="search-btn" color="primary">
+        <i class="material-icons flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length > 0">search</i>
+        <i class="material-icons flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length == 0">add</i>
+      </button>
+      <br/>
+      <span class = "info flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length > 0">Search for a plate number</span>
+      <span class = "info flip-horizontal-bottom" *ngIf="(filteredOptions | async)?.length == 0">Add the plate number</span>
+    </form>
+  </div>
+</div>

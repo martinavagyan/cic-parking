@@ -5,3 +5,5 @@ applications:
   buildpack: sdk-for-nodejs
   command: npm run cloudstart
   memory: 512M
+  services:
+      - Copark-mongodb

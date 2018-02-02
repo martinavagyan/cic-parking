@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class MainContentComponent implements OnInit {
 
   public showUser: boolean = false;
-  public showSearch: boolean = false;
-  public showAdd: boolean = true;
+  public showSearch: boolean = true;
+  public showAdd: boolean = false;
 
   constructor() { }
 

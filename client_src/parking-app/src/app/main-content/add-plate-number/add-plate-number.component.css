@@ -72,3 +72,15 @@ input {
 .menu-btn {
   color: #424242;
 }
+
+.main-body {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.search-card-container {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+

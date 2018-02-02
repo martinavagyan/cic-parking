@@ -6,15 +6,10 @@ import {AddPlateNumberComponent} from "./main-content/add-plate-number/add-plate
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
   //{ path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: SearchComponent},
-
   { path: 'user/:plateNumber', component: UserCardComponent },
   { path: 'add-user', component: AddPlateNumberComponent },
-
-  // { path: 'home', component: HomeComponent },
-  // { path: '**', component: ErrorComponent }
+  { path: '', component: SearchComponent},
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
