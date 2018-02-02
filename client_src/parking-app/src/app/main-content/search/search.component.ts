@@ -31,10 +31,15 @@ export class SearchComponent implements OnInit {
   onHostClicked = new EventEmitter<void>();
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges
-      .startWith(null)
-      .map(carOwner => carOwner && typeof carOwner === 'object' ? carOwner.plateNumber : carOwner)
-      .map(name => name ? this.filter(name) : this.carOwners.slice());
+    this.carOwnerApi.find().subscribe(
+      (response) => {
+        this.carOwners = response;
+        console.log('carOnwer', this.carOwners );
+        this.filteredOptions = this.myControl.valueChanges
+          .startWith(null)
+          .map(carOwner => carOwner && typeof carOwner === 'object' ? carOwner.plateNumber : carOwner)
+          .map(name => name ? this.filter(name) : this.carOwners.slice());
+      });
   }
 
   public plateNumberClicked(host): void {

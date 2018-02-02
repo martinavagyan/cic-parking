@@ -28,6 +28,14 @@ import { MapValuesPipe } from './map-values.pipe';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import {CarOwnerApi} from "./shared/sdk/services/custom/CarOwner";
 import {HttpModule} from "@angular/http";
+import {SocketConnection} from "./shared/sdk/sockets/socket.connections";
+import {SocketDriver} from "./shared/sdk/sockets/socket.driver";
+import {SDKModels} from "./shared/sdk/services/custom/SDKModels";
+import {LoopBackAuth} from "./shared/sdk/services/core/auth.service";
+import {InternalStorage} from "./shared/sdk/storage/storage.swaps";
+import {JSONSearchParams} from "./shared/sdk/services/core/search.params";
+import {CarOwnerApi} from "./shared/sdk/services/custom/CarOwner";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -108,6 +116,13 @@ import {HttpModule} from "@angular/http";
     ApiRequestsService,
     MapValuesPipe,
     RouterModule,
+    CarOwnerApi,
+    SocketConnection,
+    SocketDriver,
+    SDKModels,
+    LoopBackAuth,
+    InternalStorage,
+    JSONSearchParams
     CarOwnerApi,
   ],
   bootstrap: [AppComponent],
