@@ -32,7 +32,7 @@ export class CarOwnerApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for accessTokens.
+   * Find a related item by id for accessTokens.222
    *
    * @param {any} id CarOwner id
    *
@@ -129,7 +129,7 @@ export class CarOwnerApi extends BaseLoopBackApi {
    *
    * @param {any} id CarOwner id
    *
-   * @param {object} filter 
+   * @param {object} filter
    *
    * @returns {object[]} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -224,7 +224,7 @@ export class CarOwnerApi extends BaseLoopBackApi {
    *
    * Data properties:
    *
-   *  - `count` – `{number}` - 
+   *  - `count` – `{number}` -
    */
   public countAccessTokens(id: any, where: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
@@ -322,9 +322,9 @@ export class CarOwnerApi extends BaseLoopBackApi {
    *
    * The response body contains properties of the AccessToken created on login.
    * Depending on the value of `include` parameter, the body may contain additional properties:
-   * 
+   *
    *   - `user` - `U+007BUserU+007D` - Data of the currently logged in user. (`include=user`)
-   * 
+   *
    *
    */
   public login(credentials: any, include: any = 'user', rememberMe: boolean = true, customHeaders?: Function): Observable<any> {
@@ -347,7 +347,7 @@ export class CarOwnerApi extends BaseLoopBackApi {
         }
       );
       return result;
-      
+
   }
 
   /**
@@ -371,7 +371,7 @@ export class CarOwnerApi extends BaseLoopBackApi {
     let _postBody: any = {};
     let _urlParams: any = {};
        _urlParams.access_token = this.auth.getAccessTokenId();
-    this.auth.clear(); 
+    this.auth.clear();
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;
   }
@@ -407,11 +407,11 @@ export class CarOwnerApi extends BaseLoopBackApi {
   /**
    * Confirm a user registration with identity verification token.
    *
-   * @param {string} uid 
+   * @param {string} uid
    *
-   * @param {string} token 
+   * @param {string} token
    *
-   * @param {string} redirect 
+   * @param {string} redirect
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -464,9 +464,9 @@ export class CarOwnerApi extends BaseLoopBackApi {
    *
    * @param {object} data Request data.
    *
-   *  - `oldPassword` – `{string}` - 
+   *  - `oldPassword` – `{string}` -
    *
-   *  - `newPassword` – `{string}` - 
+   *  - `newPassword` – `{string}` -
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -495,7 +495,7 @@ export class CarOwnerApi extends BaseLoopBackApi {
    *
    * @param {object} data Request data.
    *
-   *  - `newPassword` – `{string}` - 
+   *  - `newPassword` – `{string}` -
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
