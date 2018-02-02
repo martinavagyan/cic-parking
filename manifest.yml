@@ -3,5 +3,5 @@ applications:
 - name: copark
   path: .
   buildpack: sdk-for-nodejs
-  command: npm start
+  command: npm run cloudstart
   memory: 512M
