@@ -43,11 +43,15 @@ export class SearchComponent implements OnInit {
       });
   }
 
-  public plateNumberClicked(host): void {
-    console.log(host);
+  public plateNumberClicked(plateNumber): void {
+    console.log(plateNumber);
     //this.onHostClicked.emit(host);
     console.log(this.filteredOptions);
-    this.router.navigate(['/user',host.plateNumber]);
+    this.router.navigate(['/user',plateNumber]);
+  }
+
+  public addPlateNumberClicked(plateNumber): void {
+    this.router.navigate(['/add-user',plateNumber]);
   }
 
   public testfunc(array): void {
