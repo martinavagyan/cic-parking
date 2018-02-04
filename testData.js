@@ -1,6 +1,6 @@
-[
+let carOwner = [
   {
-    "plateNumber": "MO-243-AK",
+    "plateNumber": "MO-243-AKK",
     "name": "Martin",
     "surname": "Avagyan",
     "contact": [
@@ -24,7 +24,6 @@
     "emailVerified": true,
     "password": "1234"
   },
-
 
   {
     "plateNumber": "MK-123-PQ",
@@ -78,3 +77,6 @@
   "password": "1234"
   }
 ]
+
+
+module.exports = {carOwner,}
