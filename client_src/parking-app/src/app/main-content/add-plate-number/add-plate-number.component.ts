@@ -1,6 +1,8 @@
 import {Component, OnInit, Renderer} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import { ChangeDetectorRef } from '@angular/core';
+import {Location} from '@angular/common';
+
 
 
 @Component({
@@ -23,7 +25,7 @@ export class AddPlateNumberComponent implements OnInit {
   private updateMaps: boolean = false;
 
 
-  constructor(public snackBar: MatSnackBar,private ref: ChangeDetectorRef, private renderer: Renderer) {}
+  constructor(public snackBar: MatSnackBar,private ref: ChangeDetectorRef, private renderer: Renderer, private location: Location) {}
 
   openSnackBar(message: string = "Plate number added.", action: string = "Success!") {
     this.snackBar.open(message, action, {
@@ -90,6 +92,10 @@ export class AddPlateNumberComponent implements OnInit {
 
   public createUser(): void {
 
+  }
+
+  backClicked() {
+    this.location.back();
   }
 
 }

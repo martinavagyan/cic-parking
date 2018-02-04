@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CarOwnerApi} from "../../shared/sdk/services/custom/CarOwner";
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class UserCardComponent implements OnInit {
 
   public carOwner: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private carOwnerApi: CarOwnerApi) { }
+  constructor(private activatedRoute: ActivatedRoute, private carOwnerApi: CarOwnerApi, private location: Location) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
@@ -22,6 +23,10 @@ export class UserCardComponent implements OnInit {
         console.log(this.carOwner);
       });
     });
+  }
+
+  backClicked() {
+    this.location.back();
   }
 
 }
