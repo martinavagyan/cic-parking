@@ -1,4 +1,13 @@
-let carOwner = [
+/**
+ * Provide test data for each of the models that were declared.
+ * For every class model (i.e. CarOwner), an array of class model instances should
+ * be provided. Also they have to be mapped in testDataToModelsMap, which maps the
+ * test data of each model with the name of the corresponding class model, and finally
+ * exported.
+ */
+
+//CarOwner test data.
+let carOwners = [
   {
     "plateNumber": "MO-243-AKK",
     "name": "Martin",
@@ -24,7 +33,6 @@ let carOwner = [
     "emailVerified": true,
     "password": "1234"
   },
-
   {
     "plateNumber": "MK-123-PQ",
     "name": "Vass",
@@ -50,9 +58,8 @@ let carOwner = [
     "emailVerified": true,
     "password": "1234"
   },
-
   {
-  "plateNumber": "PQ-123-PQ",
+  "plateNumber": "PQ-123-PQQ",
   "name": "Nik",
   "surname": "Po",
   "contact": [
@@ -78,5 +85,7 @@ let carOwner = [
   }
 ]
 
+// Object that maps test data of each model with the name of the corresponding class model.
+let testDataToModelsMap = {carOwners : "CarOwner"};
 
-module.exports = {carOwner,}
+module.exports = {carOwners,testDataToModelsMap}
