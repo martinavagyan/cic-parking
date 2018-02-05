@@ -67,4 +67,8 @@ export class SearchComponent implements OnInit {
     return user ? user.plateNumber : user;
   }
 
+  public validateInputField() {
+    let expression = new RegExp('^[A-Z]{1,3}-[A-Z]{1,2}-[0-9]{1,4}$');
+
+  }
 }

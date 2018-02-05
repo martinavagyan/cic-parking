@@ -1,11 +1,10 @@
-
 <div class="main-body">
   <div class="raw search-card-container">
     <span class="logo gradient-logo">Copark</span>
     <form class="main-search">
       <mat-form-field class="search-container">
         <input #mainSearchInput type="text" class="form-control search-input" placeholder="" aria-label="Assignee" matInput
-               [formControl]="myControl" [matAutocomplete]="auto">
+               [formControl]="myControl" [matAutocomplete]="auto" #input (input)="input.value=$event.target.value.toUpperCase()">
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
           <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (onSelectionChange)="plateNumberClicked(option.plateNumber)" mat-dropdown-position="bottom">
             <!--<img style="vertical-align:middle;" aria-hidden src="/assets/{{option.name}}.jpg" height="50" />-->
@@ -20,7 +19,7 @@
       <ng-container *ngIf="(filteredOptions | async)?.length > 0; then seach_option else add_option"></ng-container>
 
       <ng-template #seach_option>
-        <button mat-icon-button class="search-btn" color="primary" (click)="plateNumberClicked(mainSearchInput.value)">
+        <button [disabled]="input.value === ''" mat-icon-button class="search-btn" color="primary" (click)="plateNumberClicked(mainSearchInput.value)">
           <i class="material-icons flip-horizontal-bottom">search</i>
         </button>
         <br/>

@@ -1,8 +1,9 @@
 import {Component, OnInit, Renderer} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
-import { ChangeDetectorRef } from '@angular/core';
+import {ChangeDetectorRef} from '@angular/core';
 import {Location} from '@angular/common';
-
+import {ActivatedRoute} from "@angular/router";
+import {CarOwnerApi} from "../../shared/sdk/services/custom/CarOwner";
 
 
 @Component({
@@ -19,13 +20,21 @@ export class AddPlateNumberComponent implements OnInit {
 
   public contactList: Map<string, any> = new Map<string, any>();
   public contactOptions: Map<string, any> = new Map<string, any>();
+
+  public plateNumber: string;
   /**
    * The following variable is a workaround for making angular update pipe arrays
    * while avoiding usage of impure pipes to increase the performance */
   private updateMaps: boolean = false;
 
 
-  constructor(public snackBar: MatSnackBar,private ref: ChangeDetectorRef, private renderer: Renderer, private location: Location) {}
+  constructor(private activatedRoute: ActivatedRoute,
+              public snackBar: MatSnackBar,
+              private ref: ChangeDetectorRef,
+              private renderer: Renderer,
+              private location: Location,
+              private carOwnerApi: CarOwnerApi) {
+  }
 
   openSnackBar(message: string = "Plate number added.", action: string = "Success!") {
     this.snackBar.open(message, action, {
@@ -34,6 +43,11 @@ export class AddPlateNumberComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.plateNumber = params['plateNumber'].toUpperCase();
+    });
+
+
     this.contactOptions.set("Phone", {
       name: "Phone",
       icon: "phone",
@@ -57,13 +71,13 @@ export class AddPlateNumberComponent implements OnInit {
     });
   }
 
-  public addContactField(value): void{
+  public addContactField(value): void {
     this.moveContactOptionToContactList(value);
     this.updateTemplateMapsPipe();
   }
 
-  private moveContactOptionToContactList(value:any){
-    if(value.val.name !== 'Other') {
+  private moveContactOptionToContactList(value: any) {
+    if (value.val.name !== 'Other') {
       this.contactOptions.delete(value.key);
       this.contactList.set(value.key, value.val);
     } else {
@@ -72,29 +86,62 @@ export class AddPlateNumberComponent implements OnInit {
     }
   }
 
-  public deleteFromSelectedContacts(value: any){
+  public deleteFromSelectedContacts(value: any) {
     this.contactList.delete(value.key);
-    if(value.val.name !== 'Other') {
+    if (value.val.name !== 'Other') {
       this.contactOptions.set(value.key, value.val);
     }
     this.updateTemplateMapsPipe();
     console.log(value);
   }
 
-  private updateTemplateMapsPipe(){
+  private updateTemplateMapsPipe() {
     this.updateMaps = !this.updateMaps;
   }
 
   public changeInputIconToDelete(event: any, currentIcon: string, changeToDelete: boolean) {
-      this.renderer.setElementClass(event.target,"fa-trash-o",changeToDelete);
-      this.renderer.setElementClass(event.target,currentIcon,!changeToDelete);
+    this.renderer.setElementClass(event.target, "fa-trash-o", changeToDelete);
+    this.renderer.setElementClass(event.target, currentIcon, !changeToDelete);
   }
 
   public createUser(): void {
+    let newCarOwner = this.getFormUserData();
 
+    this.carOwnerApi.create(newCarOwner).subscribe(response => {
+      console.log(response);
+    });
+    this.openSnackBar();
   }
 
-  backClicked() {
+  private getFormUserData(): object {
+    return {
+      "plateNumber": "MO-243-AK",
+      "name": "Martin",
+      "surname": "Avagyan",
+      "contact": [
+      {
+        "name": "email",
+        "value": "martinavagyan@gmail.com",
+        "icon": "envelope"
+      },
+      {
+        "name": "whatsapp",
+        "value": "+3169098736",
+        "icon": "whatsapp"
+      },
+      {
+        "name": "phone",
+        "value": "+3169098736",
+        "icon": "phone"
+      }
+    ],
+      "email": "martinavagyan@gmail.com",
+      "emailVerified": true,
+      "password": "1234"
+    };
+  }
+
+  public goBack() {
     this.location.back();
   }
 

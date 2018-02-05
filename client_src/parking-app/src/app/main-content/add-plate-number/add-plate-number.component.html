@@ -2,16 +2,18 @@
   <div class="raw search-card-container">
     <mat-card class="example-card">
       <div class="form-header">
-        <button mat-icon-button class="back-btn" color="primary" (click)="backClicked()">
+        <button mat-icon-button class="back-btn" color="primary" (click)="goBack()">
           <mat-icon>arrow_back</mat-icon>
         </button>
-        <button mat-icon-button class="save-btn" (click)="openSnackBar()" aria-label="snack-bar" color="primary">
+        <button mat-icon-button class="save-btn" (click)="createUser()" aria-label="snack-bar" color="primary">
           <mat-icon>check</mat-icon>
         </button>
       </div>
       <div class="fields-container">
         <mat-form-field>
-          <input [matTooltip]="infoTextPlateNumber" matInput placeholder="Plate number" value="MK-VB-13">
+          <input [matTooltip]="infoTextPlateNumber" matInput placeholder="Plate number"
+                 #input (input)="input.value=$event.target.value.toUpperCase()"
+                 value="{{plateNumber}}">
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Name">
@@ -32,7 +34,7 @@
         </ng-container>
 
         <button [matTooltip] = "contactList.size === 0 ? infoAddContactBtn : ''" [disabled]="contactOptions.size === 0" mat-button color="secondary" [matMenuTriggerFor]="othercontacts"
-                class="add-contact-btn" color="primary"><i class="material-icons">add_circle_outline</i> contact
+                class="add-contact-btn" color="primary"><i class="material-icons">add_circle_outline</i> add contact
         </button>
         <mat-menu #othercontacts="matMenu">
           <ng-container *ngFor="let contact of (contactOptions | MapValuesPipe:updateMaps)">
