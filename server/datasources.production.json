@@ -1,5 +1,5 @@
 {
-  "db":{
+  "mongo":{
     "name": "mongo",
     "url": "${MONGODB_CONNECTION_URL}",
     "connector":"mongodb",
