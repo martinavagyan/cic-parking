@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "nodemon node .",
-    "cloudstart": "[ $NODE_ENV = production ] && node ./server/server.js",
+    "cloudstart": "NODE_ENV=production node ./server/server.js",
     "buildSDK": "./node_modules/.bin/lb-sdk server/server.js  client_src/parking-app/src/app/shared/sdk",
     "posttest": "npm run lint && nsp check"
   },
